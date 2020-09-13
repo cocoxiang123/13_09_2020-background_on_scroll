@@ -27,7 +27,11 @@ section {
   background: url("img/bg3.jpg") no-repeat center center;
   background-attachment: fixed;
 }
-main {
+.section4 {
+  background: url("img/bg4.jpg") no-repeat center center;
+  background-attachment: fixed;
+}
+article {
   height: 100vh;
   display: flex;
   flex-direction: column;

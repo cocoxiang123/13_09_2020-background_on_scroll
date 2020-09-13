@@ -1,9 +1,28 @@
 $(window).scroll(function () {
   var scroll_position = $(window).scrollTop();
-  $(".section1").css({
-    "background-position-x": -scroll_position + "px",
-  });
+  var window_height = $(window).height();
 
+  //for each section
+  $("section").each(function () {
+    var section_position = $(this).offset().top;
+    console.log(section_position, window_height);
+
+    if (
+      scroll_position + window_height - section_position > 0 &&
+      section_position + window_height > scroll_position
+    ) {
+      $(this).css({
+        "background-position-x":
+          section_position - scroll_position - window_height + "px",
+      });
+    }
+    $(".section1").css({
+      "background-position-x": -scroll_position + "px",
+    });
+  });
+});
+
+/* 
   var section2_position = $(".section2").offset().top;
   var section3_position = $(".section3").offset().top;
   var window_height = $(window).height();
@@ -27,3 +46,4 @@ $(window).scroll(function () {
     });
   }
 });
+ */
